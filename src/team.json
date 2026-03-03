@@ -3,24 +3,24 @@
         "id": 1,
         "name": "Sarah Müller",
         "role": "Gründerin & CEO",
-        "image": "https://ui-avatars.com/api/?name=Sarah+Müller&size=200&background=e8ecf0&color=7a8595&rounded=true&bold=true&font-size=0.4"
+        "image": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=200&h=200"
     },
     {
         "id": 2,
         "name": "Thomas Weber",
         "role": "Betriebsleiter",
-        "image": "https://ui-avatars.com/api/?name=Thomas+Weber&size=200&background=e8ecf0&color=7a8595&rounded=true&bold=true&font-size=0.4"
+        "image": "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=200&h=200"
     },
     {
         "id": 3,
         "name": "Elena Fischer",
         "role": "Kundenbetreuung",
-        "image": "https://ui-avatars.com/api/?name=Elena+Fischer&size=200&background=e8ecf0&color=7a8595&rounded=true&bold=true&font-size=0.4"
+        "image": "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=200&h=200"
     },
     {
         "id": 4,
         "name": "Marc Keller",
         "role": "Spezialreinigung",
-        "image": "https://ui-avatars.com/api/?name=Marc+Keller&size=200&background=e8ecf0&color=7a8595&rounded=true&bold=true&font-size=0.4"
+        "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200&h=200"
     }
 ]
