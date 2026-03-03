@@ -3,30 +3,24 @@
         "id": 1,
         "name": "Sarah Müller",
         "role": "Gründerin & CEO",
-        "image": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=200"
+        "image": "https://ui-avatars.com/api/?name=Sarah+Müller&size=200&background=e8ecf0&color=7a8595&rounded=true&bold=true&font-size=0.4"
     },
     {
         "id": 2,
         "name": "Thomas Weber",
         "role": "Betriebsleiter",
-        "image": "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=200"
+        "image": "https://ui-avatars.com/api/?name=Thomas+Weber&size=200&background=e8ecf0&color=7a8595&rounded=true&bold=true&font-size=0.4"
     },
     {
         "id": 3,
         "name": "Elena Fischer",
         "role": "Kundenbetreuung",
-        "image": "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=200"
+        "image": "https://ui-avatars.com/api/?name=Elena+Fischer&size=200&background=e8ecf0&color=7a8595&rounded=true&bold=true&font-size=0.4"
     },
     {
         "id": 4,
         "name": "Marc Keller",
         "role": "Spezialreinigung",
-        "image": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=200"
-    },
-    {
-        "id": 5,
-        "name": "Julia Sommer",
-        "role": "Qualitätssicherung",
-        "image": "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&q=80&w=200"
+        "image": "https://ui-avatars.com/api/?name=Marc+Keller&size=200&background=e8ecf0&color=7a8595&rounded=true&bold=true&font-size=0.4"
     }
 ]

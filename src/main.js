@@ -122,23 +122,32 @@ document.addEventListener('DOMContentLoaded', () => {
   // Load Team
   const teamGrid = document.querySelector('.team-grid');
   if (teamGrid) {
+    const fallbackTeam = [
+      { name: "Sarah Müller", role: "Gründerin & CEO", image: "https://ui-avatars.com/api/?name=Sarah+Müller&size=200&background=e8ecf0&color=7a8595&rounded=true&bold=true&font-size=0.4" },
+      { name: "Thomas Weber", role: "Betriebsleiter", image: "https://ui-avatars.com/api/?name=Thomas+Weber&size=200&background=e8ecf0&color=7a8595&rounded=true&bold=true&font-size=0.4" },
+      { name: "Elena Fischer", role: "Kundenbetreuung", image: "https://ui-avatars.com/api/?name=Elena+Fischer&size=200&background=e8ecf0&color=7a8595&rounded=true&bold=true&font-size=0.4" },
+      { name: "Marc Keller", role: "Spezialreinigung", image: "https://ui-avatars.com/api/?name=Marc+Keller&size=200&background=e8ecf0&color=7a8595&rounded=true&bold=true&font-size=0.4" }
+    ];
+
+    const renderTeam = (data) => {
+      teamGrid.innerHTML = data.map((member, index) => `
+        <div class="team-card reveal" style="transition-delay: ${index * 0.1}s">
+          <div class="team-img-wrapper">
+            <img src="${member.image}" alt="${member.name}" loading="lazy">
+          </div>
+          <div class="team-info">
+            <h4>${member.name}</h4>
+            <span>${member.role}</span>
+          </div>
+        </div>
+      `).join('');
+      document.querySelectorAll('.team-card').forEach(el => revealObserver.observe(el));
+    };
+
     fetch(srcBase + 'team.json')
       .then(res => res.json())
-      .then(data => {
-        teamGrid.innerHTML = data.map((member, index) => `
-          <div class="team-card reveal" style="transition-delay: ${index * 0.1}s">
-            <div class="team-img-wrapper">
-              <img src="${member.image}" alt="${member.name}" loading="lazy">
-            </div>
-            <div class="team-info">
-              <h4>${member.name}</h4>
-              <span>${member.role}</span>
-            </div>
-          </div>
-        `).join('');
-        document.querySelectorAll('.team-card').forEach(el => revealObserver.observe(el));
-      })
-      .catch(err => console.error('Error loading team:', err));
+      .then(data => renderTeam(data))
+      .catch(() => renderTeam(fallbackTeam));
   }
 });
 
