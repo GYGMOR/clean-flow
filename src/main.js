@@ -73,81 +73,85 @@ document.addEventListener('DOMContentLoaded', () => {
   const base = document.querySelector('base')?.href || '';
   const srcBase = base ? base + 'src/' : 'src/';
 
-  // Load News
+  // --- NEWS DATA (hardcoded for reliable GitHub Pages deployment) ---
+  const NEWS_DATA = [
+    {
+      id: 1,
+      title: "Frühlingsputz: Tipps für ein strahlendes Zuhause",
+      date: "01.03.2024",
+      excerpt: "Der Frühling steht vor der Tür! Erfahren Sie, wie Sie mit unseren Profi-Tipps Zeit sparen und beste Ergebnisse erzielen.",
+      image: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=800"
+    },
+    {
+      id: 2,
+      title: "Bürohygiene in Zeiten von New Work",
+      date: "15.02.2024",
+      excerpt: "Saubere Arbeitsplätze fördern die Gesundheit und Produktivität. Warum regelmäßige Reinigung heute wichtiger ist denn je.",
+      image: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800"
+    },
+    {
+      id: 3,
+      title: "Spezialreinigung: Wenn es besonders sauber sein muss",
+      date: "30.01.2024",
+      excerpt: "Ob nach einer Renovierung oder bei hartnäckigen Verschmutzungen – unsere Spezialteams sind für jede Herausforderung bereit.",
+      image: "https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&q=80&w=800"
+    },
+    {
+      id: 4,
+      title: "Nachhaltige Reinigung: Gut für Mensch und Umwelt",
+      date: "10.01.2024",
+      excerpt: "Wir setzen auf umweltfreundliche Reinigungsmittel und schonende Methoden – für ein sauberes Zuhause ohne schlechtes Gewissen.",
+      image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80&w=800"
+    }
+  ];
+
+  // Render News Cards
   const newsGrid = document.querySelector('.news-grid');
   if (newsGrid) {
-    fetch(srcBase + 'news.json')
-      .then(res => res.json())
-      .then(data => {
-        const isHomePage = newsGrid.classList.contains('news-teaser-grid');
-        const postsToShow = isHomePage ? data.slice(0, 3) : data;
+    const isHomePage = newsGrid.classList.contains('news-teaser-grid');
+    const postsToShow = isHomePage ? NEWS_DATA.slice(0, 3) : NEWS_DATA;
 
-        newsGrid.innerHTML = postsToShow.map((post, index) => `
-          <a href="news-detail.html?id=${post.id}" class="news-card reveal" style="transition-delay: ${index * 0.1}s; text-decoration: none; color: inherit;">
-            <div class="news-img">
-              <img src="${post.image}" alt="${post.title}" loading="lazy">
-            </div>
-            <div class="news-content">
-              <span class="news-date">${post.date}</span>
-              <h3>${post.title}</h3>
-              <p>${post.excerpt}</p>
-              <span style="color: var(--color-primary); font-weight: 600; display: inline-block; margin-top: 12px;">Weiterlesen →</span>
-            </div>
-          </a>
-        `).join('');
+    newsGrid.innerHTML = postsToShow.map((post, index) => `
+      <a href="news-detail.html?id=${post.id}" class="news-card reveal" style="transition-delay: ${index * 0.1}s; text-decoration: none; color: inherit; display: flex; flex-direction: column;">
+        <div class="news-img">
+          <img src="${post.image}" alt="${post.title}" loading="lazy">
+        </div>
+        <div class="news-content">
+          <span class="news-date">${post.date}</span>
+          <h3>${post.title}</h3>
+          <p>${post.excerpt}</p>
+          <span style="color: var(--color-primary); font-weight: 600; display: inline-block; margin-top: 12px;">Weiterlesen →</span>
+        </div>
+      </a>
+    `).join('');
 
-        document.querySelectorAll('.news-card').forEach(el => revealObserver.observe(el));
-        if (window.lucide) window.lucide.createIcons();
-      })
-      .catch(err => {
-        console.error('Error loading news:', err);
-        // Fallback: show inline dummy news if fetch fails
-        newsGrid.innerHTML = `
-          <article class="news-card">
-            <div class="news-img"><img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=800" alt="Frühlingsputz" loading="lazy"></div>
-            <div class="news-content"><span class="news-date">01.03.2024</span><h3>Frühlingsputz: Tipps für ein strahlendes Zuhause</h3><p>Der Frühling steht vor der Tür! Erfahren Sie, wie Sie mit unseren Profi-Tipps beste Ergebnisse erzielen.</p><span style="color: var(--color-primary); font-weight: 600; display: inline-block; margin-top: 12px;">Weiterlesen →</span></div>
-          </article>
-          <article class="news-card">
-            <div class="news-img"><img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800" alt="Bürohygiene" loading="lazy"></div>
-            <div class="news-content"><span class="news-date">15.02.2024</span><h3>Bürohygiene in Zeiten von New Work</h3><p>Saubere Arbeitsplätze fördern die Gesundheit und Produktivität. Warum regelmäßige Reinigung wichtiger ist denn je.</p><span style="color: var(--color-primary); font-weight: 600; display: inline-block; margin-top: 12px;">Weiterlesen →</span></div>
-          </article>
-          <article class="news-card">
-            <div class="news-img"><img src="https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&q=80&w=800" alt="Spezialreinigung" loading="lazy"></div>
-            <div class="news-content"><span class="news-date">30.01.2024</span><h3>Spezialreinigung: Wenn es besonders sauber sein muss</h3><p>Ob nach Renovierungen oder bei hartnäckigen Verschmutzungen – unsere Experten sind bereit.</p><span style="color: var(--color-primary); font-weight: 600; display: inline-block; margin-top: 12px;">Weiterlesen →</span></div>
-          </article>
-        `;
-      });
+    document.querySelectorAll('.news-card').forEach(el => revealObserver.observe(el));
+    if (window.lucide) window.lucide.createIcons();
   }
 
-  // Load Team
+  // --- TEAM DATA (hardcoded for reliable GitHub Pages deployment) ---
+  const TEAM_DATA = [
+    { name: "Sarah Müller", role: "Gründerin & CEO", image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=200&h=200" },
+    { name: "Thomas Weber", role: "Betriebsleiter", image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=200&h=200" },
+    { name: "Elena Fischer", role: "Kundenbetreuung", image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=200&h=200" },
+    { name: "Marc Keller", role: "Spezialreinigung", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200&h=200" }
+  ];
+
+  // Render Team Cards
   const teamGrid = document.querySelector('.team-grid');
   if (teamGrid) {
-    const fallbackTeam = [
-      { name: "Sarah Müller", role: "Gründerin & CEO", image: "https://ui-avatars.com/api/?name=Sarah+Müller&size=200&background=e8ecf0&color=7a8595&rounded=true&bold=true&font-size=0.4" },
-      { name: "Thomas Weber", role: "Betriebsleiter", image: "https://ui-avatars.com/api/?name=Thomas+Weber&size=200&background=e8ecf0&color=7a8595&rounded=true&bold=true&font-size=0.4" },
-      { name: "Elena Fischer", role: "Kundenbetreuung", image: "https://ui-avatars.com/api/?name=Elena+Fischer&size=200&background=e8ecf0&color=7a8595&rounded=true&bold=true&font-size=0.4" },
-      { name: "Marc Keller", role: "Spezialreinigung", image: "https://ui-avatars.com/api/?name=Marc+Keller&size=200&background=e8ecf0&color=7a8595&rounded=true&bold=true&font-size=0.4" }
-    ];
-
-    const renderTeam = (data) => {
-      teamGrid.innerHTML = data.map((member, index) => `
-        <div class="team-card reveal" style="transition-delay: ${index * 0.1}s">
-          <div class="team-img-wrapper">
-            <img src="${member.image}" alt="${member.name}" loading="lazy">
-          </div>
-          <div class="team-info">
-            <h4>${member.name}</h4>
-            <span>${member.role}</span>
-          </div>
+    teamGrid.innerHTML = TEAM_DATA.map((member, index) => `
+      <div class="team-card reveal" style="transition-delay: ${index * 0.1}s">
+        <div class="team-img-wrapper">
+          <img src="${member.image}" alt="${member.name}" loading="lazy">
         </div>
-      `).join('');
-      document.querySelectorAll('.team-card').forEach(el => revealObserver.observe(el));
-    };
-
-    fetch(srcBase + 'team.json')
-      .then(res => res.json())
-      .then(data => renderTeam(data))
-      .catch(() => renderTeam(fallbackTeam));
+        <div class="team-info">
+          <h4>${member.name}</h4>
+          <span>${member.role}</span>
+        </div>
+      </div>
+    `).join('');
+    document.querySelectorAll('.team-card').forEach(el => revealObserver.observe(el));
   }
 });
 
