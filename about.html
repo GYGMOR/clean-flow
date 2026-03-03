@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Über uns | Clean Flow</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="/src/style.css">
+</head>
+
+<body>
+    <header class="header scrolled">
+        <div class="container nav">
+            <a href="/" class="logo">
+                <i data-lucide="droplets"></i>
+                <span>Clean Flow</span>
+            </a>
+            <nav class="nav-links">
+                <a href="/" class="nav-link">Home</a>
+                <a href="/about.html" class="nav-link active">Über uns</a>
+                <a href="/services.html" class="nav-link">Services</a>
+                <a href="/news.html" class="nav-link">News</a>
+                <a href="/contact.html" class="nav-link">Kontakt</a>
+            </nav>
+            <div class="burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <div class="page-header-bg"
+            style="background: url('https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&q=80&w=1920') no-repeat center center/cover;">
+        </div>
+        <div class="container page-header-content">
+            <h1 class="reveal">Über uns</h1>
+            <p class="reveal" style="max-width: 600px; margin: 20px auto; color: rgba(255,255,255,0.9);">Erfahren Sie
+                mehr über unsere Geschichte, unsere Werte und das Team hinter Clean Flow.</p>
+        </div>
+    </section>
+
+    <main>
+        <section class="section">
+            <div class="container">
+                <div class="text-center reveal">
+                    <h2>Unsere Geschichte</h2>
+                    <p style="max-width: 700px; margin: 20px auto;">Gegründet mit einer Vision:
+                        Reinigungsdienstleistungen
+                        durch Technologie und Leidenschaft auf ein neues Level zu heben.</p>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; margin-top: 60px;"
+                    class="reveal">
+                    <div>
+                        <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&q=80&w=800"
+                            alt="Unser Team bei der Arbeit"
+                            style="border-radius: var(--border-radius-lg); box-shadow: var(--shadow-medium); width: 100%;">
+                    </div>
+                    <div>
+                        <h2 style="margin-bottom: 20px;">Unsere Vision</h2>
+                        <p style="margin-bottom: 20px;">Wir glauben, dass ein sauberes Umfeld die Lebensqualität
+                            steigert. Deshalb setzen wir auf modernste Techniken und ökologisch verträgliche
+                            Reinigungsmittel, um nicht nur für Sauberkeit, sondern auch für Nachhaltigkeit zu sorgen.
+                        </p>
+                        <h2 style="margin-bottom: 20px;">Unsere Mission</h2>
+                        <p>Jeden Tag geben wir unser Bestes, um die Erwartungen unserer Kunden zu übertreffen.
+                            Transparente Kommunikation, faire Preise und absolute Zuverlässigkeit sind die Grundpfeiler
+                            unseres Handelns.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" style="background-color: var(--color-bg-soft-blue);">
+            <div class="container">
+                <div class="text-center reveal">
+                    <h2>Das Team hinter Clean Flow</h2>
+                    <p>Lernen Sie die Menschen kennen, die täglich für Ihren Glanz sorgen.</p>
+                </div>
+
+                <div class="team-grid">
+                    <!-- Dynamically loaded from team.json -->
+                </div>
+            </div>
+        </section>
+
+        <section class="section testimonials">
+            <div class="container reveal">
+                <div class="testimonial-slider">
+                    <div class="testimonial-item">
+                        <p class="testimonial-text">"Die beste Reinigungsfirma, die wir je hatten. Zuverlässig,
+                            gründlich und super freundlich!"</p>
+                        <div class="testimonial-author">
+                            <span class="author-name">Familie Schneider</span>
+                            <span class="author-location">Zürich</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer same as index.html -->
+    <footer class="footer footer-dark">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-info">
+                    <div class="logo" style="margin-bottom: 20px; color: white;">
+                        <i data-lucide="droplets"></i>
+                        <span>Clean Flow</span>
+                    </div>
+                    <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem; line-height: 1.6;">Ihr Partner für
+                        erstklassige Reinigungsdienstleistungen in der Region. Wir stehen für Qualität, Glanz und
+                        Zuverlässigkeit.</p>
+                </div>
+                <div class="footer-links">
+                    <h4 style="color: white; margin-bottom: 20px;">Unternehmen</h4>
+                    <ul>
+                        <li><a href="/about.html">Über uns</a></li>
+                        <li><a href="/services.html">Services</a></li>
+                        <li><a href="/news.html">News</a></li>
+                        <li><a href="/contact.html">Kontakt</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4 style="color: white; margin-bottom: 20px;">Services</h4>
+                    <ul>
+                        <li><a href="/services.html#maintenance">Unterhaltsreinigung</a></li>
+                        <li><a href="/services.html#office">Büroreinigung</a></li>
+                        <li><a href="/services.html#special">Spezialreinigung</a></li>
+                        <li><a href="/services.html#move">Umzugsreinigung</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4 style="color: white; margin-bottom: 20px;">Kontakt</h4>
+                    <p style="color: rgba(255,255,255,0.6); font-size: 0.85rem; margin-bottom: 10px;">Bahnhofstrasse
+                        1<br>8001 Zürich</p>
+                    <p style="color: rgba(255,255,255,0.6); font-size: 0.85rem; margin-bottom: 10px;">+41 44 123 45 67
+                    </p>
+                    <p style="color: rgba(255,255,255,0.6); font-size: 0.85rem;">info@cleanflow.ch</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom-row reveal">
+                <div class="footer-newsletter-v2">
+                    <h4>Newsletter Abonnieren!</h4>
+                    <form class="newsletter-form">
+                        <div style="display: flex; gap: 8px; max-width: 400px;">
+                            <input type="email" placeholder="Deine E-Mail" required
+                                style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.1); color: white; padding: 12px; border-radius: 8px; flex-grow: 1;">
+                            <button type="submit" class="btn btn-primary" style="padding: 12px 20px;"><i
+                                    data-lucide="send"></i></button>
+                        </div>
+                    </form>
+                </div>
+                <div class="footer-map-v2">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2702.138830171887!2d8.538597376915!3d47.36974240428587!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47900a69634f1e6b%3A0xc07ce9b0680387b!2sParadeplatz!5e0!3m2!1sde!2sch!4v1709484000000!5m2!1sde!2sch"
+                        allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p style="color: rgba(255,255,255,0.5); font-size: 0.85rem;">&copy; 2024 Clean Flow. Alle Rechte
+                    vorbehalten.</p>
+                <div class="footer-social">
+                    <a href="#"><i data-lucide="instagram"></i></a>
+                    <a href="#"><i data-lucide="facebook"></i></a>
+                    <a href="#"><i data-lucide="linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Detail | Clean Flow</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="/src/style.css">
+</head>
+
+<body>
+    <header class="header scrolled">
+        <div class="container nav">
+            <a href="/" class="logo"><i data-lucide="droplets"></i> <span>Clean Flow</span></a>
+            <nav class="nav-links"><a href="/" class="nav-link">Home</a><a href="/news.html" class="nav-link">News</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="news-detail-container" style="padding-top: 150px; padding-bottom: 100px;">
+        <div class="container">
+            <div class="reveal" id="news-content">
+                <p>Lade Artikel...</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2024 Clean Flow. Alle Rechte vorbehalten.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module">
+        document.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const id = params.get('id');
+            const contentDiv = document.getElementById('news-content');
+
+            if (id) {
+                fetch('/src/news.json')
+                    .then(res => res.json())
+                    .then(data => {
+                        const post = data.find(p => p.id == id);
+                        if (post) {
+                            document.title = post.title + ' | Clean Flow';
+                            contentDiv.innerHTML = `
+                                <img src="${post.image}" alt="${post.title}" style="width: 100%; height: 400px; object-fit: cover; border-radius: 20px; margin-bottom: 40px;">
+                                <span style="color: var(--color-text-secondary);">${post.date}</span>
+                                <h1 style="font-size: 3rem; margin: 20px 0;">${post.title}</h1>
+                                <div style="font-size: 1.2rem; line-height: 1.8; color: var(--color-text-secondary); max-width: 800px;">
+                                    <p>${post.excerpt}</p>
+                                    <p style="margin-top: 20px;">Dies ist ein Platzhalter für den vollständigen Artikelinhalt. Hier würden detaillierte Informationen, Tipps und Bilder folgen, um den Leser umfassend zu informieren.</p>
+                                </div>
+                                <a href="/news.html" class="btn btn-outline" style="margin-top: 40px;">Zurück zur Übersicht</a>
+                            `;
+                        } else {
+                            contentDiv.innerHTML = '<h1>Artikel nicht gefunden</h1>';
+                        }
+                    });
+            }
+        });
+    </script>
+    <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>
