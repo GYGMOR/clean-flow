@@ -257,6 +257,24 @@ img {
   }
 }
 
+/* Footer logo: white rounded card with black shadow */
+.footer .logo-card {
+  margin-bottom: 0;
+}
+
+.footer .logo-card-inner {
+  background: white;
+  border-radius: 16px;
+  padding: 10px 14px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.30);
+  border: none;
+}
+
+.footer .logo-card img {
+  height: 64px;
+  filter: none;
+}
+
 .nav-links {
   display: flex;
   gap: 32px;
