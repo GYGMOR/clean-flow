@@ -189,7 +189,7 @@ img {
   position: relative;
   z-index: 1001;
   /* More overlap: extends below header into the hero */
-  margin-bottom: -50px;
+  margin-bottom: -65px;
   transition: var(--transition-smooth);
 }
 
@@ -213,7 +213,7 @@ img {
 }
 
 .logo-card img {
-  height: 100px;
+  height: 130px;
   width: auto;
   display: block;
   object-fit: contain;
