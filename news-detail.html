@@ -4,67 +4,290 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>News Detail | Clean Flow</title>
+    <title>News | Clean Flow</title>
+    <meta name="description" content="Clean Flow News Artikel">
     <script src="https://unpkg.com/lucide@latest"></script>
-    <link rel="stylesheet" href="/src/style.css">
+    <link rel="stylesheet" href="src/style.css">
+    <style>
+        .article-header {
+            position: relative;
+            height: 40vh;
+            min-height: 280px;
+            display: flex;
+            align-items: flex-end;
+            overflow: hidden;
+            color: white;
+        }
+
+        .article-header-bg {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+            transition: transform 0.3s ease;
+        }
+
+        .article-header-bg::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.2) 60%, transparent 100%);
+        }
+
+        .article-header-content {
+            position: relative;
+            z-index: 1;
+            padding: 40px 24px;
+            width: 100%;
+        }
+
+        .article-date {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.75);
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .article-header-content h1 {
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            max-width: 800px;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .article-body {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 48px 24px 80px;
+        }
+
+        .article-body p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--color-text);
+            margin-bottom: 20px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--color-primary);
+            font-weight: 600;
+            margin-bottom: 32px;
+            transition: var(--transition-smooth);
+        }
+
+        .back-link:hover {
+            gap: 12px;
+        }
+
+        .article-tag {
+            display: inline-block;
+            background: rgba(0, 119, 182, 0.1);
+            color: var(--color-primary);
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-bottom: 24px;
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .article-header {
+                height: 35vh;
+            }
+
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 
 <body>
     <header class="header scrolled">
         <div class="container nav">
-            <a href="/" class="logo"><i data-lucide="droplets"></i> <span>Clean Flow</span></a>
-            <nav class="nav-links"><a href="/" class="nav-link">Home</a><a href="/news.html" class="nav-link">News</a>
+            <a href="index.html" class="logo"><i data-lucide="droplets"></i> <span>Clean Flow</span></a>
+            <nav class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">Über uns</a>
+                <a href="services.html" class="nav-link">Services</a>
+                <a href="news.html" class="nav-link active">News</a>
+                <a href="contact.html" class="nav-link">Kontakt</a>
             </nav>
+            <div class="burger"><span></span><span></span><span></span></div>
         </div>
     </header>
 
-    <main id="news-detail-container" style="padding-top: 150px; padding-bottom: 100px;">
-        <div class="container">
-            <div class="reveal" id="news-content">
-                <p>Lade Artikel...</p>
-            </div>
+    <div id="articleContainer">
+        <!-- Loaded dynamically -->
+        <div style="padding: 200px 20px; text-align: center;">
+            <p style="color: var(--color-text-secondary);">Artikel wird geladen...</p>
         </div>
-    </main>
+    </div>
 
-    <footer class="footer">
+    <footer class="footer footer-dark">
         <div class="container">
+            <div class="footer-grid">
+                <div class="footer-info">
+                    <div class="logo" style="margin-bottom:20px;color:white;"><i data-lucide="droplets"></i><span>Clean
+                            Flow</span></div>
+                    <p style="color:rgba(255,255,255,0.7);font-size:0.9rem;line-height:1.6;">Ihr Partner für
+                        erstklassige Reinigungsdienstleistungen in der Region.</p>
+                </div>
+                <div class="footer-links">
+                    <h4 style="color:white;margin-bottom:20px;">Unternehmen</h4>
+                    <ul>
+                        <li><a href="about.html">Über uns</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="news.html">News</a></li>
+                        <li><a href="contact.html">Kontakt</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4 style="color:white;margin-bottom:20px;">Services</h4>
+                    <ul>
+                        <li><a href="unterhaltsreinigung.html">Unterhaltsreinigung</a></li>
+                        <li><a href="buroreinigung.html">Büroreinigung</a></li>
+                        <li><a href="spezialreinigung.html">Spezialreinigung</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4 style="color:white;margin-bottom:20px;">Kontakt</h4>
+                    <p style="color:rgba(255,255,255,0.6);font-size:0.85rem;">Bahnhofstrasse 1<br>8001 Zürich</p>
+                    <p style="color:rgba(255,255,255,0.6);font-size:0.85rem;margin-top:8px;">+41 44 123 45 67</p>
+                </div>
+            </div>
+            <div class="footer-bottom-row">
+                <div class="footer-newsletter-v2">
+                    <h4>Newsletter Abonnieren!</h4>
+                    <form>
+                        <div style="display:flex;gap:8px;max-width:400px;">
+                            <input type="email" placeholder="Deine E-Mail" required
+                                style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1);color:white;padding:12px;border-radius:8px;flex-grow:1;">
+                            <button type="submit" class="btn btn-primary" style="padding:12px 20px;"><i
+                                    data-lucide="send"></i></button>
+                        </div>
+                    </form>
+                </div>
+                <div class="footer-map-v2">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2702.138830171887!2d8.538597376915!3d47.36974240428587!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47900a69634f1e6b%3A0xc07ce9b0680387b!2sParadeplatz!5e0!3m2!1sde!2sch!4v1709484000000!5m2!1sde!2sch"
+                        allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 Clean Flow. Alle Rechte vorbehalten.</p>
+                <p style="color:rgba(255,255,255,0.5);font-size:0.85rem;">&copy; 2024 Clean Flow. Alle Rechte
+                    vorbehalten.</p>
+                <div class="footer-social">
+                    <a href="#"><i data-lucide="instagram"></i></a>
+                    <a href="#"><i data-lucide="facebook"></i></a>
+                    <a href="#"><i data-lucide="linkedin"></i></a>
+                </div>
             </div>
         </div>
     </footer>
 
+    <script type="module" src="src/main.js"></script>
     <script type="module">
-        document.addEventListener('DOMContentLoaded', () => {
-            const params = new URLSearchParams(window.location.search);
-            const id = params.get('id');
-            const contentDiv = document.getElementById('news-content');
+        // Full article content per news ID
+        const articleContent = {
+            1: `<p>Der Frühling steht vor der Tür – und mit ihm die Lust auf frischen Wind im Zuhause. Ein gründlicher Frühlingsputz ist mehr als nur Reinigen: Es ist ein Neustart für Ihren Wohnraum.</p>
+                <p>Unsere Experten empfehlen, mit den Fenstern anzufangen. Durch die Wintermonate sammelt sich auf den Scheiben eine unsichtbare Schicht aus Kalkflecken und Staub an. Saubere Fenster lassen bis zu 30% mehr Licht herein – das macht den Unterschied!</p>
+                <p><strong>Unser Profi-Tipp:</strong> Beginnen Sie oben und arbeiten Sie sich nach unten vor. So wird kein frisch gereinigter Bereich erneut verschmutzt. Beginnen Sie mit Schränken und Regalen, dann Oberflächen, und enden Sie mit dem Boden.</p>
+                <p>Vergessen Sie auch die versteckten Stellen: hinter dem Kühlschrank, unter dem Sofa und in den Ecken des Schranks. Staub und Schimmelsporen sammeln sich genau dort, wo man am seltensten hinschaut.</p>
+                <p>Möchten Sie den Frühlingsputz lieber professionell erledigen lassen? Unser Team steht Ihnen gerne zur Verfügung – schnell, gründlich und diskret.</p>`,
+            2: `<p>Die Arbeitswelt hat sich verändert. Homeoffice, hybrides Arbeiten und flexible Modelle sind zur Norm geworden. Doch gerade deshalb ist die Hygiene im Büro wichtiger denn je: Wenn Mitarbeiter seltener vor Ort sind, werden Reinigungsintervalle oft vernachlässigt.</p>
+                <p>Studien zeigen, dass ein sauberer Arbeitsplatz die Produktivität um bis zu 15% steigern kann. Schmutzige Tastaturen, Kaffeemaschinen und Gemeinschaftsflächen sind hingegen ideale Brutstätten für Bakterien und Viren.</p>
+                <p><strong>Was wir empfehlen:</strong> Mindestens zweimal wöchentliche Reinigung aller Sanitäranlagen, tägliche Desinfektion von Türgriffen und Lichtschaltern sowie eine monatliche Tiefenreinigung der Teeküche.</p>
+                <p>Clean Flow bietet flexible Büroreinigungsverträge an – auch außerhalb Ihrer Geschäftszeiten, damit Ihre Mitarbeiter jeden Morgen in eine frisch gereinigte Umgebung kommen.</p>`,
+            3: `<p>Manchmal reicht die normale Reinigung einfach nicht aus. Nach einem Wasserschaden, einer ausgedehnten Renovierung oder einem Event stehen Wohnungen und Büros vor Herausforderungen, die Profiequipment erfordern.</p>
+                <p>Unsere Spezialteams sind mit modernster Technik ausgestattet: Hochdruckreiniger, industrielle Nass-/Trockensauger, Dampfreiniger und professionelle Desinfektionsmittel gehören zu ihrem Standardequipment.</p>
+                <p><strong>Typische Einsatzgebiete:</strong> Baureinigung nach Renovierungen, Endreinigung bei Mieterwechsel, Reinigung nach Wassereinbrüchen, Groß-Event-Nachbereitung und Teppich-Tiefenreinigung.</p>
+                <p>Was uns auszeichnet: Wir sind innerhalb von 24 Stunden einsatzbereit und arbeiten auch an Wochenenden und Feiertagen. Kein Schaden ist zu groß, keine Aufgabe zu komplex.</p>`,
+            4: `<p>Sauberkeit und Nachhaltigkeit schließen sich nicht aus – im Gegenteil. Bei Clean Flow haben wir in den letzten Jahren konsequent auf umweltfreundliche Reinigungsmethoden umgestellt, ohne dabei Abstriche bei der Sauberkeit zu machen.</p>
+                <p>Wir verwenden ausschließlich Reinigungsmittel, die biologisch abbaubar und frei von aggressiven Chemikalien sind. Das schützt nicht nur die Umwelt, sondern auch Ihre Gesundheit – besonders wichtig in Haushalten mit Kindern, Allergikern oder Haustieren.</p>
+                <p><strong>Unsere Nachhaltigkeitsstrategie:</strong> Mikrofasertücher statt Einwegmaterialien, Konzentrate statt fertig gemischter Produkte, Wassersparende Techniken und lokale Beschaffung von Reinigungsmitteln.</p>
+                <p>Sauber sein bedeutet für uns nicht nur ein glänzendes Ergebnis – es bedeutet auch Verantwortung gegenüber unserer Umwelt und den Menschen, für die wir arbeiten.</p>`
+        };
 
-            if (id) {
-                fetch('/src/news.json')
-                    .then(res => res.json())
-                    .then(data => {
-                        const post = data.find(p => p.id == id);
-                        if (post) {
-                            document.title = post.title + ' | Clean Flow';
-                            contentDiv.innerHTML = `
-                                <img src="${post.image}" alt="${post.title}" style="width: 100%; height: 400px; object-fit: cover; border-radius: 20px; margin-bottom: 40px;">
-                                <span style="color: var(--color-text-secondary);">${post.date}</span>
-                                <h1 style="font-size: 3rem; margin: 20px 0;">${post.title}</h1>
-                                <div style="font-size: 1.2rem; line-height: 1.8; color: var(--color-text-secondary); max-width: 800px;">
-                                    <p>${post.excerpt}</p>
-                                    <p style="margin-top: 20px;">Dies ist ein Platzhalter für den vollständigen Artikelinhalt. Hier würden detaillierte Informationen, Tipps und Bilder folgen, um den Leser umfassend zu informieren.</p>
-                                </div>
-                                <a href="/news.html" class="btn btn-outline" style="margin-top: 40px;">Zurück zur Übersicht</a>
-                            `;
-                        } else {
-                            contentDiv.innerHTML = '<h1>Artikel nicht gefunden</h1>';
-                        }
-                    });
-            }
-        });
+        const base = document.querySelector('base')?.href || '';
+        const srcBase = base ? base + 'src/' : 'src/';
+
+        const params = new URLSearchParams(window.location.search);
+        const id = parseInt(params.get('id'));
+        const container = document.getElementById('articleContainer');
+
+        fetch(srcBase + 'news.json')
+            .then(r => r.json())
+            .then(articles => {
+                const article = articles.find(a => a.id === id);
+                if (!article) {
+                    container.innerHTML = `<div style="padding:200px 20px;text-align:center;"><h2>Artikel nicht gefunden</h2><a href="news.html" class="btn btn-primary" style="margin-top:24px;display:inline-block;">Zurück zu News</a></div>`;
+                    return;
+                }
+
+                // Update page title
+                document.title = article.title + ' | Clean Flow';
+
+                // Related articles (others)
+                const related = articles.filter(a => a.id !== id).slice(0, 3);
+
+                container.innerHTML = `
+                    <section class="article-header">
+                        <div class="article-header-bg" style="background-image: url('${article.image}');"></div>
+                        <div class="container article-header-content">
+                            <span class="article-date">${article.date}</span>
+                            <h1>${article.title}</h1>
+                        </div>
+                    </section>
+
+                    <main class="article-body">
+                        <a href="news.html" class="back-link">
+                            <i data-lucide="arrow-left" style="width:18px;height:18px;"></i>
+                            Zurück zu allen Artikeln
+                        </a>
+                        <span class="article-tag">Clean Flow Magazin</span>
+                        ${articleContent[id] || `<p>${article.excerpt}</p>`}
+                        <div style="margin-top:40px;padding-top:32px;border-top:1px solid rgba(0,0,0,0.08);">
+                            <a href="contact.html" class="btn btn-primary">Jetzt Angebot anfragen →</a>
+                        </div>
+                    </main>
+
+                    ${related.length ? `
+                    <section class="section bg-light">
+                        <div class="container">
+                            <h2 style="margin-bottom:32px;">Weitere Artikel</h2>
+                            <div class="related-grid">
+                                ${related.map(r => `
+                                    <a href="news-detail.html?id=${r.id}" class="news-card" style="text-decoration:none;color:inherit;">
+                                        <div class="news-img"><img src="${r.image}" alt="${r.title}" loading="lazy"></div>
+                                        <div class="news-content">
+                                            <span class="news-date">${r.date}</span>
+                                            <h3>${r.title}</h3>
+                                            <p>${r.excerpt}</p>
+                                            <span style="color:var(--color-primary);font-weight:600;display:inline-block;margin-top:12px;">Weiterlesen →</span>
+                                        </div>
+                                    </a>
+                                `).join('')}
+                            </div>
+                        </div>
+                    </section>` : ''}
+                `;
+
+                if (window.lucide) window.lucide.createIcons();
+            })
+            .catch(() => {
+                container.innerHTML = `<div style="padding:200px 20px;text-align:center;"><h2>Artikel konnte nicht geladen werden.</h2><a href="news.html" class="btn btn-primary" style="margin-top:24px;display:inline-block;">Zurück zu News</a></div>`;
+            });
     </script>
-    <script type="module" src="/src/main.js"></script>
 </body>
 
 </html>

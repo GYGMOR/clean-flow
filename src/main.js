@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const postsToShow = isHomePage ? data.slice(0, 3) : data;
 
         newsGrid.innerHTML = postsToShow.map((post, index) => `
-          <article class="news-card reveal" style="transition-delay: ${index * 0.1}s">
+          <a href="news-detail.html?id=${post.id}" class="news-card reveal" style="transition-delay: ${index * 0.1}s; text-decoration: none; color: inherit;">
             <div class="news-img">
               <img src="${post.image}" alt="${post.title}" loading="lazy">
             </div>
@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
               <p>${post.excerpt}</p>
               <span style="color: var(--color-primary); font-weight: 600; display: inline-block; margin-top: 12px;">Weiterlesen →</span>
             </div>
-          </article>
+          </a>
         `).join('');
 
         document.querySelectorAll('.news-card').forEach(el => revealObserver.observe(el));

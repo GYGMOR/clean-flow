@@ -15,6 +15,7 @@ export default defineConfig({
                 unterhaltsreinigung: resolve(__dirname, 'unterhaltsreinigung.html'),
                 buroreinigung: resolve(__dirname, 'buroreinigung.html'),
                 spezialreinigung: resolve(__dirname, 'spezialreinigung.html'),
+                newsDetail: resolve(__dirname, 'news-detail.html'),
             },
         },
     },
