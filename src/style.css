@@ -229,31 +229,31 @@ img {
 
 @media (max-width: 992px) {
   .logo-card img {
-    height: 80px;
+    height: 110px;
   }
 
   .logo-card {
-    margin-bottom: -38px;
+    margin-bottom: -55px;
   }
 }
 
 @media (max-width: 768px) {
   .logo-card img {
-    height: 64px;
+    height: 100px;
   }
 
   .logo-card {
-    margin-bottom: -28px;
+    margin-bottom: -50px;
   }
 }
 
 @media (max-width: 480px) {
   .logo-card img {
-    height: 52px;
+    height: 85px;
   }
 
   .logo-card {
-    margin-bottom: -22px;
+    margin-bottom: -42px;
   }
 }
 
