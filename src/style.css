@@ -153,6 +153,7 @@ img {
   background-color: transparent;
   transition: var(--transition-smooth);
   z-index: 1000;
+  overflow: visible;
 }
 
 .header.scrolled {
@@ -186,20 +187,22 @@ img {
   align-items: center;
   text-decoration: none;
   position: relative;
+  z-index: 1001;
+  /* Key: extends below header into the hero */
+  margin-bottom: -32px;
   transition: var(--transition-smooth);
 }
 
 .logo-card-inner {
   background: white;
-  border-radius: 14px;
-  box-shadow: 0 4px 16px rgba(0, 119, 182, 0.18), 0 1px 4px rgba(0, 0, 0, 0.08);
-  padding: 6px 10px;
+  border-radius: 18px;
+  box-shadow: 0 8px 32px rgba(0, 119, 182, 0.22), 0 2px 8px rgba(0, 0, 0, 0.10);
+  padding: 10px 14px;
   display: flex;
   align-items: center;
-  gap: 0;
   position: relative;
   overflow: hidden;
-  border: 1.5px solid rgba(0, 119, 182, 0.12);
+  border: 2px solid rgba(0, 119, 182, 0.15);
   transition: var(--transition-smooth);
 }
 
@@ -207,39 +210,56 @@ img {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(0, 119, 182, 0.08) 0%, rgba(14, 165, 233, 0.05) 100%);
-  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(0, 119, 182, 0.1) 0%, rgba(14, 165, 233, 0.06) 100%);
+  border-radius: 16px;
   pointer-events: none;
 }
 
 .logo-card:hover .logo-card-inner {
-  box-shadow: 0 6px 24px rgba(0, 119, 182, 0.28), 0 2px 6px rgba(0, 0, 0, 0.1);
-  transform: translateY(-1px);
-  border-color: rgba(0, 119, 182, 0.3);
+  box-shadow: 0 12px 40px rgba(0, 119, 182, 0.30), 0 4px 12px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+  border-color: rgba(0, 119, 182, 0.35);
 }
 
 .logo-card img {
-  height: 42px;
+  height: 80px;
   width: auto;
   display: block;
   object-fit: contain;
-  border-radius: 8px;
+}
+
+@media (max-width: 992px) {
+  .logo-card img {
+    height: 64px;
+  }
+
+  .logo-card {
+    margin-bottom: -24px;
+  }
 }
 
 @media (max-width: 768px) {
   .logo-card img {
-    height: 36px;
+    height: 52px;
   }
 
   .logo-card-inner {
-    padding: 5px 8px;
-    border-radius: 12px;
+    padding: 8px 10px;
+    border-radius: 14px;
+  }
+
+  .logo-card {
+    margin-bottom: -20px;
   }
 }
 
 @media (max-width: 480px) {
   .logo-card img {
-    height: 32px;
+    height: 44px;
+  }
+
+  .logo-card {
+    margin-bottom: -16px;
   }
 }
 
